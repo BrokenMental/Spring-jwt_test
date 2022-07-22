@@ -1,0 +1,25 @@
+spring:
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  #h2-console ?? ?? : localhost:{??}/h2-console ??, ??? ?? ? url? ???? ?? ? connect
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop #sessionFactory ?? ?/ create, alter ?? ? Drop ??? ??
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true #boot 2.5 ?? ?? ?? ? hibernate ??? ???? data.sql? ?? ???? ??? ???? ??? ??
+
+logging:
+  level:
+    me.silvernine: DEBUG
